@@ -18,6 +18,7 @@ for (var filter in Filters) {
 }
 
 import Home from './pages/home.vue';
+import Topic from './pages/detail.vue';
 // import Topic from './pages/detail.vue';
 Vue.config.debug = true;//开启错误提示
 var router = new VueRouter()
@@ -31,10 +32,10 @@ router.map({
 		// 	}
 		// }
 	},
-	// '/topic/:id': {
-	// 	name: 'topic',
-	// 	component: Topic
-	// }
+	'/topic/:id': {
+		name: 'topic',
+		component: Topic
+	}
 })
 
 router.redirect({

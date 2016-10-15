@@ -44,4 +44,8 @@ export default {
     font-size: inherit;
     margin-right: 2px;
 }
+img{
+    width: 100%;
+    display: block;
+}
 </style>
