@@ -48,4 +48,7 @@ img{
     width: 100%;
     display: block;
 }
+a{
+    color: inherit;
+}
 </style>

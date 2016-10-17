@@ -9,7 +9,7 @@
     <span slot="title">{{data.title}}</span>
     <p class="small-text">
         <span class="span"><i class="material-icons">perm_identity</i>{{data.author.loginname}}</span>
-        <span class="span"><i class="material-icons">query_builder</i>{{data.create_at | formatDate}}</span>
+        <span class="span time"><i class="material-icons">query_builder</i>{{data.create_at | formatDate}}</span>
         <span class="span"><i class="material-icons">visibility</i>{{data.visit_count}}</span>
 
     </p>
@@ -19,11 +19,16 @@
     </div>
 
 </md-card>
+<div class="col s12">
+    <Comment :comment="comment" v-for="comment in data.replies"></Comment>
+</div>
 </template>
 
 <script>
 import ajax from '../util/ajax';
 import API from '../util/api';
+
+import Comment from '../components/comment.vue'
 
 export default {
     data() {
@@ -35,6 +40,7 @@ export default {
     ready() {},
     attached() {
         this.fetchData(this.$route.params.id);
+        this.$root.$set('loading', true);
     },
     methods: {
         fetchData(id){
@@ -47,11 +53,13 @@ export default {
                 callback(data){
                     console.log(data);
                     self.$set('data', data.data);
+                    self.$root.$set('loading', false);
+
                 }
             })
         }
     },
-    components: {}
+    components: {Comment}
 }
 </script>
 
@@ -63,5 +71,8 @@ nav{
 span.span{
     margin-right: 20px;
 }
-
+span.time{
+    color: #aaa;
+    font-size: 12px;
+}
 </style>

@@ -20,6 +20,7 @@ export default {
     computed: {},
     attached() {
         // console.log(this);
+
     },
     methods: {},
     components: {}
@@ -27,7 +28,4 @@ export default {
 </script>
 
 <style lang="css">
-.hoverable{
-    cursor: pointer;
-}
 </style>
