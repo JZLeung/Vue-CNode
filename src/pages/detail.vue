@@ -1,26 +1,28 @@
 <template>
-<md-navbar>
-    <div class="col s12" slot="content">
-        <a v-link="{name: 'home'}" class="breadcrumb">首页</a>
-        <span class="breadcrumb">文章详情</span>
-    </div>
-</md-navbar>
-<md-card>
-    <span slot="title">{{data.title}}</span>
-    <p class="small-text">
-        <span class="span"><i class="material-icons">perm_identity</i>{{data.author.loginname}}</span>
-        <span class="span time"><i class="material-icons">query_builder</i>{{data.create_at | formatDate}}</span>
-        <span class="span"><i class="material-icons">visibility</i>{{data.visit_count}}</span>
+<div class="details">
+    <md-navbar>
+        <div class="col s12" slot="content">
+            <a v-link="{name: 'home'}" class="breadcrumb">首页</a>
+            <span class="breadcrumb">文章详情</span>
+        </div>
+    </md-navbar>
+    <md-card>
+        <span slot="title">{{data.title}}</span>
+        <p class="small-text">
+            <span class="span"><i class="material-icons">perm_identity</i>{{data.author.loginname}}</span>
+            <span class="span time"><i class="material-icons">query_builder</i>{{data.create_at | formatDate}}</span>
+            <span class="span"><i class="material-icons">visibility</i>{{data.visit_count}}</span>
 
-    </p>
-    <hr class="divider">
-    <div>
-        {{{data.content}}}
-    </div>
+        </p>
+        <hr class="divider">
+        <div>
+            {{{data.content}}}
+        </div>
 
-</md-card>
-<div class="col s12">
-    <Comment :comment="comment" v-for="comment in data.replies"></Comment>
+    </md-card>
+    <div class="col s12">
+        <Comment :comment="comment" v-for="comment in data.replies"></Comment>
+    </div>
 </div>
 </template>
 
@@ -33,7 +35,10 @@ import Comment from '../components/comment.vue'
 export default {
     data() {
         return {
-            data: {}
+            data: {
+                author: {},
+                replies: []
+            }
         }
     },
     computed: {},
@@ -74,5 +79,22 @@ span.span{
 span.time{
     color: #aaa;
     font-size: 12px;
+}
+pre{
+    background: #f5f5f5;
+    padding: 0.5rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+}
+@media screen and (max-width: 420px) {
+    h1,h2{
+        font-size: 16px !important;
+    }
+    h3,h4{
+        font-size: 15px !important;
+    }
+    h5,h6{
+        font-size: 14px !important;
+    }
 }
 </style>

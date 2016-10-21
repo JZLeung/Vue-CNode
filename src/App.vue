@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 @media screen and (max-width: 420px) {
     .container{
         width: 95% !important;
@@ -51,4 +51,5 @@ img{
 a{
     color: inherit;
 }
+
 </style>

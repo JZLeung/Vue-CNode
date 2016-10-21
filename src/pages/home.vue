@@ -1,4 +1,5 @@
 <template lang="html">
+<div class="container">
     <md-navbar title="CNode" left hamburger mode="hide-on-med-and-down">
         <md-nav-item  @click="init('all')">全部</md-nav-item>
         <md-nav-item  @click="init('good')">精华</md-nav-item>
@@ -11,6 +12,7 @@
             alskdfjaklsdf
         </p>
     </topic>
+</div>
 </template>
 
 <script>
